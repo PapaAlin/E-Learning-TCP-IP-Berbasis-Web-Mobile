@@ -1,0 +1,11 @@
+Menambahkan domain baru
+1. Buka direktori C:Windows/System32/drivers/etc pilih file Host
+2. Edit file host dengan notepad (Run as Administrator)
+3. Tulis nama domain baru, misalnya gukyuk.local
+
+Menambahkan data Virtual Host
+1. Buka control panel XAMPP kemudian pilih config pada apache (httpd.conf)
+2. Cari Include conf/extra/httpd-vhosts.conf kemudian hapus tanda # pada bagian depan (jika ada, jika tidak tutup notepad tersebut)
+3. Buka file httpd-vhost.conf pada direktori C:xampp/apache/conf/extra menggunakan notepad untuk setting Virtual Host baru.
+4. kemudian ketikan perintah sebagai berikut (Simpan paling bawah) kemudian Simpan hasil penambahan tersebut.
+5. Kemudian resetart Apache kalian lewat Control Panel XAMPP.

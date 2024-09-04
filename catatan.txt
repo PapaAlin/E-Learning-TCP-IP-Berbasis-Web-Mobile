@@ -1,0 +1,50 @@
+1. Ekstrack dan pindahkan file web ke folder htdocs
+2. Buat Virtual Host.
+3. buka dan edit C:Windows/System32/drivers/etc/host
+4. tambahkan baris "27.0.0.1	simpos.local", kemudian simpan
+
+5. Buka control panel XAMPP kemudian pilih config pada apache (httpd.conf)
+Cari Include conf/extra/httpd-vhosts.conf kemudian hapus tanda # pada bagian depan (jika ada, jika tidak tutup notepad tersebut)
+
+6. Buka file httpd-vhost.conf pada direktori C:xampp/apache/conf/extra menggunakan notepad untuk setting Virtual Host baru.
+
+7. tambahkan text berikut :
+<VirtualHost *:80>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot "C:xampp/htdocs/lbb"
+    ServerName lbb.local
+    ServerAlias www.lbb.local
+    ErrorLog "logs/dummy-host.example.com-error.log"
+    CustomLog "logs/dummy-host.example.com-access.log" common
+    <Directory "C:xampp/htdocs/lbb">
+        Options Indexes FollowSymLinks Includes ExecCGI
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+8. Kemudian resetart Apache kalian lewat Control Panel XAMPP.
+
+========================== install dan konfigurasi modem =================
+
+1. kopi folder gammu di "C:"
+2. Install driver modem.
+3. Cek port modem di device manager. dengan cara klik windows dan ketikan device manager
+4. klik 2x modem, dan pilih nama modem yang tertancap, lihat port yang ada di tab menu modem.
+5. masuk di folder gammu "C:/gammu/bin"
+6. edit file gammurc
+7. Isikan POrt : samakan dengan yg ada di device manager tadi.
+8. Isikan jenis conection dengan : at
+9. Kemudian cek dengan CMD (Comment Promt) dengan cara tekan Windows+R kemudian ketik cmd lalu enter.
+10. kemudian masuk di folder gammu nya dengan mengetik C:\gammu\bin
+11. kemudian ketik gammu identify
+12. jika keluar status dan model modem, berarti sukses install modemnya.
+13. kemudian membuat service dengan cara ketik "gammu-smsd -S -c smsdrc -i -s"
+14. selesai.
+
+Catatan :
+1. jika ingin kirim sms, pastikan service smsdrc berjalan, dengan cara tekan Windows kemudian cari services, buka dan cari nama Gammu SMSD Service (GammuSMSD), kemudian restart service nya.
+2. dan selesai.
